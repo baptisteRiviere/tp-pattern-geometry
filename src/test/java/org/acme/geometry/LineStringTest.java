@@ -51,4 +51,10 @@ public class LineStringTest {
         Assert.assertEquals(pointN,lineString.getPointN(0));
     }
 
+    @Test
+    public void testGetType(){
+        LineString lineString = new LineString();
+        Assert.assertEquals("Linestring",lineString.getType());
+    }
+
 }

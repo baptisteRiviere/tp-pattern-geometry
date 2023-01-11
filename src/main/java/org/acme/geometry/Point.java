@@ -22,11 +22,12 @@ public class Point implements Geometry {
 
     @Override
     public String getType() {
-        return null;
+        return "Point";
     }
 
     @Override
     public boolean isEmpty() {
         return coordinate.isEmpty();
     }
+
 }

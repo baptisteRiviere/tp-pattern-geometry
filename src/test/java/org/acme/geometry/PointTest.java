@@ -15,7 +15,13 @@ public class PointTest {
     public void testConstructor(){
         Coordinate coordinate = GeometryFactory.createCoordinate();
         Point point = new Point(coordinate);
-        Assert.assertEquals(coordinate, point.getCoordinate());
+        Assert.assertSame(coordinate, point.getCoordinate());
+    }
+
+    @Test
+    public void testGetType(){
+        Point point = new Point();
+        Assert.assertEquals("Point",point.getType());
     }
 
 }
