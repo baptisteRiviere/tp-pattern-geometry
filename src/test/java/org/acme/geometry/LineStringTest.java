@@ -73,4 +73,20 @@ public class LineStringTest {
         Assert.assertEquals(exCoordinate.getY()+dy,newCoordinate.getY(),EPSILON);
     }
 
+    @Test
+    public void testClone(){
+        LineString lineString = GeometryFactory.createLinestring();
+
+        LineString clonedLineString = lineString.clone();
+        double dx = 5.0;
+        double dy = 10.0;
+        clonedLineString.translate(dx,dy);
+
+        Coordinate clonedLineStringFirstCoordinate = clonedLineString.getPointN(0).getCoordinate();
+        Coordinate lineStringFirstCoordinate = lineString.getPointN(0).getCoordinate();
+
+        Assert.assertNotEquals(lineStringFirstCoordinate.getX(),clonedLineStringFirstCoordinate.getX(),EPSILON);
+        Assert.assertNotEquals(lineStringFirstCoordinate.getY(),clonedLineStringFirstCoordinate.getY(),EPSILON);
+    }
+
 }

@@ -39,4 +39,20 @@ public class PointTest {
         Assert.assertEquals(coordinate.getY()+dy,point.getCoordinate().getY(),EPSILON);
     }
 
+    @Test
+    public void testClone(){
+        Point point = GeometryFactory.createPoint();
+
+        Point clonedPoint = point.clone();
+        double dx = 5.0;
+        double dy = 10.0;
+        clonedPoint.translate(dx,dy);
+
+        Coordinate clonedPointCoordinate = clonedPoint.getCoordinate();
+        Coordinate pointCoordinate = point.getCoordinate();
+
+        Assert.assertNotEquals(pointCoordinate.getX(),clonedPointCoordinate.getX(),EPSILON);
+        Assert.assertNotEquals(pointCoordinate.getY(),clonedPointCoordinate.getY(),EPSILON);
+    }
+
 }
