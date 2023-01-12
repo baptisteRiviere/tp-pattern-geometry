@@ -8,6 +8,8 @@ import java.util.List;
 
 public class LineStringTest {
 
+    public static final double EPSILON = 1.0e-15;
+
     @Test
     public void testDefaultConstructor(){
 
@@ -55,6 +57,20 @@ public class LineStringTest {
     public void testGetType(){
         LineString lineString = new LineString();
         Assert.assertEquals("Linestring",lineString.getType());
+    }
+
+    @Test
+    public void testTranslate(){
+        double dx = 5.0;
+        double dy = 10.0;
+        LineString lineString = GeometryFactory.createLinestring();
+
+        Coordinate exCoordinate = lineString.getPointN(0).getCoordinate();
+        lineString.translate(dx,dy);
+        Coordinate newCoordinate = lineString.getPointN(0).getCoordinate();
+
+        Assert.assertEquals(exCoordinate.getX()+dx,newCoordinate.getX(),EPSILON);
+        Assert.assertEquals(exCoordinate.getY()+dy,newCoordinate.getY(),EPSILON);
     }
 
 }

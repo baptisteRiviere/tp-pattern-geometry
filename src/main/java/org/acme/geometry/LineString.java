@@ -36,4 +36,17 @@ public class LineString implements Geometry {
     public boolean isEmpty() {
         return points.isEmpty();
     }
+
+    @Override
+    public void translate(double dx, double dy) {
+
+        List<Point> newPoints = new ArrayList<Point>();
+
+        for(Point point : points){
+            point.translate(dx,dy);
+            newPoints.add(point);
+        }
+
+        this.points = newPoints;
+    }
 }
