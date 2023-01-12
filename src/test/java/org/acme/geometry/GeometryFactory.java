@@ -5,6 +5,8 @@ import java.util.List;
 
 public class GeometryFactory {
 
+    public static final double EPSILON = 1.0e-15;
+
     public static Coordinate createCoordinate() {
         Coordinate c = new Coordinate(1.0,1.0);
         return c;

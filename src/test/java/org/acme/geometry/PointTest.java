@@ -5,8 +5,6 @@ import org.junit.Test;
 
 public class PointTest {
 
-    public static final double EPSILON = 1.0e-15;
-
     @Test
     public void testDefaultConstructor(){
         Point point = new Point();
@@ -35,8 +33,8 @@ public class PointTest {
 
         point.translate(dx,dy);
 
-        Assert.assertEquals(coordinate.getX()+dx,point.getCoordinate().getX(),EPSILON);
-        Assert.assertEquals(coordinate.getY()+dy,point.getCoordinate().getY(),EPSILON);
+        Assert.assertEquals(coordinate.getX()+dx,point.getCoordinate().getX(),GeometryFactory.EPSILON);
+        Assert.assertEquals(coordinate.getY()+dy,point.getCoordinate().getY(),GeometryFactory.EPSILON);
     }
 
     @Test
@@ -51,8 +49,8 @@ public class PointTest {
         Coordinate clonedPointCoordinate = clonedPoint.getCoordinate();
         Coordinate pointCoordinate = point.getCoordinate();
 
-        Assert.assertNotEquals(pointCoordinate.getX(),clonedPointCoordinate.getX(),EPSILON);
-        Assert.assertNotEquals(pointCoordinate.getY(),clonedPointCoordinate.getY(),EPSILON);
+        Assert.assertNotEquals(pointCoordinate.getX(),clonedPointCoordinate.getX(),GeometryFactory.EPSILON);
+        Assert.assertNotEquals(pointCoordinate.getY(),clonedPointCoordinate.getY(),GeometryFactory.EPSILON);
     }
 
 }

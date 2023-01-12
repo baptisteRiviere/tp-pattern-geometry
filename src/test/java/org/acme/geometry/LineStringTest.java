@@ -8,8 +8,6 @@ import java.util.List;
 
 public class LineStringTest {
 
-    public static final double EPSILON = 1.0e-15;
-
     @Test
     public void testDefaultConstructor(){
 
@@ -69,8 +67,8 @@ public class LineStringTest {
         lineString.translate(dx,dy);
         Coordinate newCoordinate = lineString.getPointN(0).getCoordinate();
 
-        Assert.assertEquals(exCoordinate.getX()+dx,newCoordinate.getX(),EPSILON);
-        Assert.assertEquals(exCoordinate.getY()+dy,newCoordinate.getY(),EPSILON);
+        Assert.assertEquals(exCoordinate.getX()+dx,newCoordinate.getX(),GeometryFactory.EPSILON);
+        Assert.assertEquals(exCoordinate.getY()+dy,newCoordinate.getY(),GeometryFactory.EPSILON);
     }
 
     @Test
@@ -85,8 +83,8 @@ public class LineStringTest {
         Coordinate clonedLineStringFirstCoordinate = clonedLineString.getPointN(0).getCoordinate();
         Coordinate lineStringFirstCoordinate = lineString.getPointN(0).getCoordinate();
 
-        Assert.assertNotEquals(lineStringFirstCoordinate.getX(),clonedLineStringFirstCoordinate.getX(),EPSILON);
-        Assert.assertNotEquals(lineStringFirstCoordinate.getY(),clonedLineStringFirstCoordinate.getY(),EPSILON);
+        Assert.assertNotEquals(lineStringFirstCoordinate.getX(),clonedLineStringFirstCoordinate.getX(),GeometryFactory.EPSILON);
+        Assert.assertNotEquals(lineStringFirstCoordinate.getY(),clonedLineStringFirstCoordinate.getY(),GeometryFactory.EPSILON);
     }
 
 }
