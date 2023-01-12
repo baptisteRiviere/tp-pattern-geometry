@@ -73,4 +73,9 @@ public class LineString implements Geometry {
         Envelope envelope = builder.getEnvelope();
         return envelope;
     }
+
+    @Override
+    public void accept(GeometryVisitor visitor) {
+        visitor.visit(this);
+    }
 }

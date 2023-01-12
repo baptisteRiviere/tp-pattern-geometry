@@ -9,7 +9,6 @@ public class EnvelopeTest {
     public void testDefaultConstructor(){
         Envelope envelope = new Envelope();
         Assert.assertTrue(envelope.isEmpty());
-
     }
 
     @Test
