@@ -48,6 +48,7 @@ public class LineString extends AbstractGeometry {
         }
 
         this.points = newPoints;
+        this.triggerChange();
     }
 
     @Override

@@ -39,6 +39,7 @@ public class Point extends AbstractGeometry {
         );
 
         this.coordinate = newCoordinate;
+        this.triggerChange();
     }
 
     @Override
