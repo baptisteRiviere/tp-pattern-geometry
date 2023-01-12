@@ -3,6 +3,8 @@ package org.acme.geometry;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class PointTest {
 
     @Test
@@ -63,6 +65,12 @@ public class PointTest {
         Assert.assertEquals(point.getEnvelope().getYmin(), point.getCoordinate().getY(), GeometryFactory.EPSILON);
         Assert.assertEquals(point.getEnvelope().getXmax(), point.getCoordinate().getX(), GeometryFactory.EPSILON);
         Assert.assertEquals(point.getEnvelope().getYmax(), point.getCoordinate().getY(), GeometryFactory.EPSILON);
+    }
+
+    @Test
+    public void testGeometryAsText() {
+        Point point = new Point(new Coordinate(3.0,4.0));
+        assertEquals("POINT(3.0 4.0)", point.asText().trim());
     }
 
 

@@ -6,6 +6,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class LineStringTest {
 
     @Test
@@ -106,6 +108,12 @@ public class LineStringTest {
         Assert.assertEquals(ymin, envelope.getYmin(), GeometryFactory.EPSILON);
         Assert.assertEquals(xmax, envelope.getXmax(), GeometryFactory.EPSILON);
         Assert.assertEquals(ymax, envelope.getYmax(), GeometryFactory.EPSILON);
+    }
+
+    @Test
+    public void testGeometryAsText() {
+        LineString lineString = GeometryFactory.createLinestring();
+        assertEquals("LINESTRING(1.0 5.0,8.0 2.0)", lineString.asText().trim());
     }
 
 }
