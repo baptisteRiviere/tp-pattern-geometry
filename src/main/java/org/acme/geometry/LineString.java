@@ -64,6 +64,7 @@ public class LineString extends AbstractGeometry {
         return clonedLineString;
     }
 
+    /*
     @Override
     public Envelope getEnvelope() {
         EnvelopeBuilder builder = new EnvelopeBuilder();
@@ -73,6 +74,7 @@ public class LineString extends AbstractGeometry {
         Envelope envelope = builder.getEnvelope();
         return envelope;
     }
+    */
 
     @Override
     public void accept(GeometryVisitor visitor) {

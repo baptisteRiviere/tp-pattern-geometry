@@ -8,6 +8,12 @@ public abstract class AbstractGeometry implements Geometry {
         return wktVisitor.getResult();
     }
 
+    public Envelope getEnvelope() {
+        EnvelopeBuilder envelopeBuilder = new EnvelopeBuilder();
+        this.accept(envelopeBuilder);
+        return envelopeBuilder.build();
+    }
+
     public abstract Geometry clone();
 
 }

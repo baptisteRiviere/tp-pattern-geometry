@@ -16,7 +16,7 @@ public class EnvelopeBuilderTest {
         EnvelopeBuilder builder = new EnvelopeBuilder();
         builder.insert(new Coordinate(xmin,ymin));
         builder.insert(new Coordinate(xmax,ymax));
-        Envelope envelope = builder.getEnvelope();
+        Envelope envelope = builder.build();
 
         Assert.assertEquals(xmin, envelope.getXmin(), GeometryFactory.EPSILON);
         Assert.assertEquals(ymin, envelope.getYmin(), GeometryFactory.EPSILON);

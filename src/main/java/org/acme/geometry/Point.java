@@ -47,6 +47,7 @@ public class Point extends AbstractGeometry {
         return clonedPoint;
     }
 
+    /*
     @Override
     public Envelope getEnvelope() {
         EnvelopeBuilder builder = new EnvelopeBuilder();
@@ -54,6 +55,7 @@ public class Point extends AbstractGeometry {
         Envelope envelope = builder.getEnvelope();
         return envelope;
     }
+    */
 
     @Override
     public void accept(GeometryVisitor visitor) {
