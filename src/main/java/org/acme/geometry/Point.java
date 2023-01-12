@@ -47,4 +47,13 @@ public class Point implements Geometry {
         return clonedPoint;
     }
 
+    @Override
+    public Envelope getEnvelope() {
+        EnvelopeBuilder builder = new EnvelopeBuilder();
+        builder.insert(this.getCoordinate());
+        Envelope envelope = builder.getEnvelope();
+        return envelope;
+    }
+
+
 }

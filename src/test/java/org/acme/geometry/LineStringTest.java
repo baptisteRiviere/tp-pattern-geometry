@@ -87,4 +87,25 @@ public class LineStringTest {
         Assert.assertNotEquals(lineStringFirstCoordinate.getY(),clonedLineStringFirstCoordinate.getY(),GeometryFactory.EPSILON);
     }
 
+    @Test
+    public void testGetEnvelope() {
+        double xmin = 1.0;
+        double ymin = 2.0;
+        double xmax = 5.0;
+        double ymax = 6.0;
+
+        List<Point> points = new ArrayList<Point>();
+        points.add(new Point(new Coordinate(xmin,ymin)));
+        points.add(new Point(new Coordinate(xmax,ymax)));
+
+        LineString lineString = new LineString(points);
+
+        Envelope envelope = lineString.getEnvelope();
+        
+        Assert.assertEquals(xmin, envelope.getXmin(), GeometryFactory.EPSILON);
+        Assert.assertEquals(ymin, envelope.getYmin(), GeometryFactory.EPSILON);
+        Assert.assertEquals(xmax, envelope.getXmax(), GeometryFactory.EPSILON);
+        Assert.assertEquals(ymax, envelope.getYmax(), GeometryFactory.EPSILON);
+    }
+
 }

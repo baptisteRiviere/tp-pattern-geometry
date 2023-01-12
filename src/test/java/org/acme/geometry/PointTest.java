@@ -53,4 +53,17 @@ public class PointTest {
         Assert.assertNotEquals(pointCoordinate.getY(),clonedPointCoordinate.getY(),GeometryFactory.EPSILON);
     }
 
+    @Test
+    public void testGetEnvelope() {
+        Point point = GeometryFactory.createPoint();
+
+        Envelope envelope = point.getEnvelope();
+
+        Assert.assertEquals(point.getEnvelope().getXmin(), point.getCoordinate().getX(), GeometryFactory.EPSILON);
+        Assert.assertEquals(point.getEnvelope().getYmin(), point.getCoordinate().getY(), GeometryFactory.EPSILON);
+        Assert.assertEquals(point.getEnvelope().getXmax(), point.getCoordinate().getX(), GeometryFactory.EPSILON);
+        Assert.assertEquals(point.getEnvelope().getYmax(), point.getCoordinate().getY(), GeometryFactory.EPSILON);
+    }
+
+
 }
