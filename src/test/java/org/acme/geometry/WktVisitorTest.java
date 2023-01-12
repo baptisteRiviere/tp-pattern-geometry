@@ -21,4 +21,13 @@ public class WktVisitorTest {
         geometry.accept(visitor);
         assertEquals("LINESTRING(1.0 5.0,8.0 2.0)", visitor.getResult());
     }
+
+    @Test
+    public void testVisitWithGeometryCollection() {
+        WktVisitor visitor = new WktVisitor();
+        Geometry geometry = GeometryFactory.createGeometryCollection();
+        geometry.accept(visitor);
+        assertEquals("GEOMETRYCOLLECTION (POINT(1.0 1.0),LINESTRING(1.0 5.0,8.0 2.0))", visitor.getResult());
+    }
+
 }

@@ -31,4 +31,14 @@ public class GeometryFactory {
         LineString linestring = new LineString(points);
         return linestring;
     }
+
+    public static GeometryCollection createGeometryCollection() {
+        List<Geometry> geometries = new ArrayList<Geometry>();
+        geometries.add(GeometryFactory.createPoint());
+        geometries.add(GeometryFactory.createLinestring());
+
+        GeometryCollection geometryCollection = new GeometryCollection(geometries);
+
+        return geometryCollection;
+    }
 }

@@ -36,4 +36,18 @@ public class EnvelopeBuilder implements GeometryVisitor {
             this.insert(point.getCoordinate());
         }
     }
+
+    @Override
+    public void visit(GeometryCollection geometryCollection) {
+        for (int geometryIndex = 0; geometryIndex < geometryCollection.getNumGeometries(); geometryIndex++) {
+            Geometry geometry = geometryCollection.getGeometryN(geometryIndex);
+
+            Envelope envelope = geometry.getEnvelope();
+            Coordinate botomLeft = new Coordinate(envelope.getXmin(), envelope.getYmin());
+            Coordinate uperRight = new Coordinate(envelope.getXmax(), envelope.getYmax());
+
+            this.insert(botomLeft);
+            this.insert(uperRight);
+        }
+    }
 }
