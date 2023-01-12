@@ -25,6 +25,7 @@ public class EnvelopeBuilder implements GeometryVisitor {
 
     @Override
     public void visit(Point point) {
+
         this.insert(point.getCoordinate());
     }
 
